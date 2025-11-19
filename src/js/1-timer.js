@@ -15,7 +15,7 @@ let userSelectedDate = null;
 let countdownInterval = null;
 
 const options = {
-    enabletime: true,
+    enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
   minuteIncrement: 1,
@@ -23,7 +23,7 @@ const options = {
     onClose(selectedDates) {
       const pickedDate = selectedDates[0];
       
-        if (pickedDate <= new Date()) {
+        if (pickedDate.getTime() <= Date.now()) {
             iziToast.error({
                 title: 'Error',
                 message: 'Please choose a date in the future',
@@ -65,7 +65,7 @@ startBtn.addEventListener('click', () => {
 });
 
 function updateTimerDisplay(days, hours, minutes, seconds) {
-  daysEl.textContent = days;
+  daysEl.textContent = addLeadingZero(days);
   hoursEl.textContent = addLeadingZero(hours);
   minutesEl.textContent = addLeadingZero(minutes);
   secondsEl.textContent = addLeadingZero(seconds);
