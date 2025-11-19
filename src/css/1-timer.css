@@ -1,0 +1,65 @@
+
+/* Рядок (input та Start) */
+.timer-page .picker-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Поле вибору дати */
+#datetime-picker {
+    padding: 10px 12px;
+    font-size: 18px;
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Кнопка Start */
+button[data-start] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4a67ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button[data-start]:hover:not(:disabled) {
+    background-color: #354cd1;
+}
+
+button[data-start]:disabled {
+    background-color: #9da7ff;
+    cursor: not-allowed;
+}
+
+/* Контейнер таймера */
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+/* Кожне поле */
+.timer .field {
+    text-align: center;
+}
+
+/* Цифри таймера */
+.timer .value {
+    display: block;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Текст Days і подібні*/
+.timer .label {
+    font-size: 16px;
+    color: #555;
+}

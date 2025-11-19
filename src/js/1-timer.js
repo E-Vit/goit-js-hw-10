@@ -2,22 +2,27 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+
 const input = document.querySelector("#datetime-picker");
 const startBtn = document.querySelector("[data-start]");
 const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
+
 startBtn.disabled = true;
 let userSelectedDate = null;
 let countdownInterval = null;
-cons options = {
+
+const options = {
     enabletime: true,
     time_24hr: true,
     defaultDate: new Date(),
-    minuteIncrement: 1,
+  minuteIncrement: 1,
+    
     onClose(selectedDates) {
-        const pickedDate = selectedDates[0];
+      const pickedDate = selectedDates[0];
+      
         if (pickedDate <= new Date()) {
             iziToast.error({
                 title: 'Error',
@@ -26,13 +31,16 @@ cons options = {
             });
             startBtn.disabled = true;
             return;
-        }
+      }
+      
         userSelectedDate = pickedDate;
         startBtn.disabled = false;
     
     },
 };
+
 flatpickr(input, options);
+
 startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
   input.disabled = true;
@@ -55,6 +63,7 @@ startBtn.addEventListener('click', () => {
 
   }, 1000);
 });
+
 function updateTimerDisplay(days, hours, minutes, seconds) {
   daysEl.textContent = days;
   hoursEl.textContent = addLeadingZero(hours);
